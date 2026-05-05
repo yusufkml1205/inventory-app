@@ -19,6 +19,9 @@ export default defineConfig({
         tailwindcss(),
         wayfinder({
             formVariants: true,
+            // Tambahkan logika di bawah ini:
+            // Jika dijalankan di Vercel, jangan lakukan generate (karena tidak ada PHP)
+            runOnBuild: process.env.VERCEL ? false : true,
         }),
     ],
     esbuild: {
